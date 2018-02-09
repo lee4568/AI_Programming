@@ -18,7 +18,6 @@ public class Node : IComparable {
         nodeTotalCost = 1f;
         bObstacle = false;
         parent = null;
-        position = position;
     }
     public Node(Vector3 pos)
     {
@@ -26,7 +25,7 @@ public class Node : IComparable {
         nodeTotalCost = 1f;
         bObstacle = false;
         parent = null;
-        position = position;
+        position = pos;
     }
     public void MarkAsObstacle ()
     {

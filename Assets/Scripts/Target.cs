@@ -1,10 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Target : MonoBehaviour {
 
+    private NavMeshAgent[] navAgents;
+
     public Transform targetMarker;
+
+    void Start()
+    {
+        navAgents = FindObjectsOfType(typeof(NavMeshAgent)) as NavMeshAgent[];
+    }
+
+    void UpdateTargets(Vector3 targetPosition)
+    {
+        foreach (NavMeshAgent agent in navAgents)
+        {
+            agent.destination = targetPosition;
+        }
+    }
 
 	void Update ()
     {
@@ -12,11 +28,14 @@ public class Target : MonoBehaviour {
         if(Input.GetMouseButtonDown(button))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
             RaycastHit hitInfo;
-            if(Physics.Raycast(ray.origin, ray.direction,out hitInfo))
+
+            if (Physics.Raycast(ray.origin, ray.direction,out hitInfo))
             {
                 Vector3 targetPosition = hitInfo.point;
-                targetMarker.position = targetPosition;
+                UpdateTargets(targetPosition);
+                targetMarker.position = targetPosition + new Vector3(0, 5, 0);
             }
         }
 	}

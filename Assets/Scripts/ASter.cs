@@ -31,7 +31,9 @@ public class ASter
                 return CalculatePath(node);
             }
             ArrayList neighbours = new ArrayList();
+
             GridManager.instance.GetNeighbours(node, neighbours);
+
             for (int i = 0; i < neighbours.Count; i++)
             {
                 Node neighbourNode = (Node)neighbours[i];
@@ -40,6 +42,7 @@ public class ASter
                     float cost = HeuristicEstimateCost(node, neighbourNode);
                     float totalCost = node.nodeTotalCost + cost;
                     float neighbourNodeEstCost = HeuristicEstimateCost(neighbourNode, goal);
+
                     neighbourNode.nodeTotalCost = totalCost;
                     neighbourNode.parent = node;
                     neighbourNode.estimatedCost = totalCost + neighbourNodeEstCost;
@@ -57,7 +60,7 @@ public class ASter
             Debug.LogError("Goal not Found");
             return null;
         }
-        return CalculatePath(node);
+        return CalculatePath(node); // 결정된 node를 CalculatePath로 계산을 한다.
     }
     private static ArrayList CalculatePath(Node node)
     {

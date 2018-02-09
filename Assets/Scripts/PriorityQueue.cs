@@ -21,7 +21,7 @@ public class PriorityQueue
     {
         if(nodes.Count > 0)
         {
-            return (Node)nodes[0];
+            return (Node)nodes[0]; //노드의 첫번째 배열을 반환한다.
         }
         return null;
     }

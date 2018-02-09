@@ -153,7 +153,7 @@ public class GridManager : MonoBehaviour {
     {
         if(showGrid)
         {
-            DebugDrawGrid(transform.position, numOfRows, numOfColumns, gridCellSize, Color.green);
+            DebugDrawGrid(transform.position, numOfRows, numOfColumns, gridCellSize, Color.black);
         }
         Gizmos.DrawSphere(transform.position, 0.5f);
         if(showObstacleBlocks)
