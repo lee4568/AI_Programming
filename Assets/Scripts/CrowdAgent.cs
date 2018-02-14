@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+
 public class CrowdAgent : MonoBehaviour {
 
     public Transform target;
@@ -16,6 +17,6 @@ public class CrowdAgent : MonoBehaviour {
     {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Random.Range(angetSpeedmin,angetSpeedmax);
-        agent.SetDestination(target.position);	
+        agent.SetDestination(target.position);
 	}
 }

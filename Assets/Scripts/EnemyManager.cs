@@ -8,6 +8,8 @@ public class EnemyManager : MonoBehaviour {
     public float Cooltime;
     public float Delaytime;
     public int enemyCnt;
+    
+
 
 	void Start ()
     { 

@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour {
                 return;
             }
             GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity) as GameObject;
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
